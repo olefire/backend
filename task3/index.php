@@ -1,16 +1,12 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
 
-// В суперглобальном массиве $_SERVER PHP сохраняет некторые заголовки запроса HTTP
-// и другие сведения о клиненте и сервере, например метод текущего запроса $_SERVER['REQUEST_METHOD'].
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    // В суперглобальном массиве $_GET PHP хранит все параметры, переданные в текущем запросе через URL.
     if (!empty($_GET['save'])) {
-        // Если есть параметр save, то выводим сообщение пользователю.
         print('Спасибо, результаты сохранены.');
     }
-    include('form.php'); // Включаем содержимое файла form.php.
-    exit(); // Завершаем работу скрипта.
+    include('form.php'); 
+    exit();
 }
 
 $result = false;
@@ -49,18 +45,14 @@ try {
     $bio = $_POST['bio'];
     $che = $_POST['contract'];
 
-//Объединяет элементы массива в строку
     $sup = $_POST['superpowers'];
 
     $usr = 'u53311';
     $password = '9113881';
-//Представляет собой соединение между PHP и сервером базы данных.
     $connection = new PDO("mysql:host=localhost;dbname=u53311", $usr, $password, array(PDO::ATTR_PERSISTENT => true));
 
-//Подготавливает инструкцию к выполнению и возвращает объект инструкции
     $user = $connection->prepare("INSERT INTO form SET name = ?, email = ?, birthday = ?, sex = ?, limbs = ?, bio = ?, contract = ?");
 
-//Запускает подготовленный запрос на выполнение
     $user->execute([$_POST['name'], $_POST['email'], date('Y-m-d', strtotime($_POST['birthday'])), $_POST['sex'], $_POST['limbs'], $_POST['bio'], $_POST['contract']]);
     $id_user = $connection->lastInsertId();
 
