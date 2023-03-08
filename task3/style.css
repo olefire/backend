@@ -1,0 +1,35 @@
+* {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arial", "Times New Roman", "Felix Titling", sans-serif;
+    font-size: 14px;
+    background-color: #4bfff7;
+}
+
+
+.form {
+    margin: 10px;
+    padding: 30px;
+    border: 2px #efeaea;
+    border-radius: 2px;
+}
+
+
+input[type=submit] {
+    padding: 5px 15px;
+    background: #ccc;
+    border: 0 none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+select, textarea {
+    vertical-align: middle;
+}
+
+label {
+    color: #37378d;
+}
