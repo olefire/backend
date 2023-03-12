@@ -44,7 +44,7 @@ try {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $dob = $_POST['birthday'];
-    $gender = $_POST['gender'];
+    $sex = $_POST['sex'];
     $limbs = $_POST['limbs'];
     $bio = $_POST['bio'];
     $che = $_POST['contract'];
